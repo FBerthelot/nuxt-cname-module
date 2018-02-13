@@ -1,6 +1,6 @@
 {
   "name": "nuxt-cname-module",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "description": "Nuxt Module that generate CNAME file in nuxt generate mode - VueJS",
   "main": "src/index.js",
   "scripts": {
