@@ -4,7 +4,7 @@ node_js:
 
 env:
   global:
-    - NODE_ENV=production
+    - NODE_ENV=test
 
 cache:
   directories:
