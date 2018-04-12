@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const {promisify} = require('util');
-// Const debug = require('debug')('nuxt:cname');
+const debug = require('debug')('nuxt:cname');
 const path = require('path');
 
 const unlink = promisify(fs.unlink);
@@ -21,7 +21,7 @@ module.exports = function (moduleOptions) {
     return Promise.resolve();
   }
 
-  // Debug('Starting write CNAME file');
+  debug('Starting write CNAME file');
   const cnamePath = path.resolve(this.options.srcDir, path.join('static', 'CNAME'));
 
   const unlinkOrNot = cnamePath ? unlink(cnamePath) : Promise.resolve();
@@ -29,6 +29,6 @@ module.exports = function (moduleOptions) {
   return unlinkOrNot
     .then(() => writeFile(cnamePath, options.baseUrl))
     .then(() => {
-    //  Debug('Finish writing CNAME file');
+      debug('Finish writing CNAME file');
     });
 };
