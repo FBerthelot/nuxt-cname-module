@@ -43,11 +43,10 @@ describe('cname module', () => {
     unlinkErr = null;
   });
 
-  it('should write CNAME file when when in generate mode', () => {
+  it('should write CNAME file when in generate mode', () => {
     return nuxt.nuxtModule({baseUrl: 'github.com'})
-      .then(({path, content}) => {
-        expect(path).to.equal('/tmp/toto/static/CNAME');
-        expect(content).to.equal('github.com');
+      .then(() => {
+        expect(writeFileCalles).to.be.true;
       });
   });
 
