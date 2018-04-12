@@ -5,7 +5,6 @@ const {promisify} = require('util');
 const debug = require('debug')('nuxt:cname');
 const path = require('path');
 
-const unlink = promisify(fs.unlink);
 const writeFile = promisify(fs.writeFile);
 
 module.exports = function (moduleOptions) {
@@ -24,10 +23,7 @@ module.exports = function (moduleOptions) {
   debug('Starting write CNAME file');
   const cnamePath = path.resolve(this.options.srcDir, path.join('static', 'CNAME'));
 
-  const unlinkOrNot = cnamePath ? unlink(cnamePath) : Promise.resolve();
-
-  return unlinkOrNot
-    .then(() => writeFile(cnamePath, options.baseUrl))
+  return writeFile(cnamePath, options.baseUrl)
     .then(() => {
       debug('Finish writing CNAME file');
     });

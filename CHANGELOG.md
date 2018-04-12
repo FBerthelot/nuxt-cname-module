@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 - 12/03/2018
+
+fix: really do not break the build anymore when there is no cname
+
 ## 1.1.0 - 12/03/2018
 
 fix: do not break the build anymore when there is no cname
